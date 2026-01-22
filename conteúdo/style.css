@@ -1,16 +1,26 @@
+/* FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mystery+Quest&display=swap');
+
 /* CORES TEMA CLARO: */
 
 :root{
 
     /* COR DE FUNDO */
     --background-color: #FFFFFF;
+    --secao-background-color: #EBCDFF;
 
     /* CORES DE TEXTO */
-    --text: #000000;
+    --texto-escuro: #22003C;
+    --texto-claro: #FFFFFF;
     
     /* CORES BASE */
-    --base: #91a5ff;
+    --base-header: #CE91E5;
     --base-escura: #2644c9;
+
+    /* FORMULÁRIO */
+    --background-color-form: #CE91E5;
+    --button-background: #4D2466;
     
 }
 
@@ -22,7 +32,8 @@
     --background-color: #000000;
 
     /* CORES DE TEXTO */
-    --text: #FFFFFF;
+    --texto-escuro: #FFFFFF;
+    --texto-claro: #000000;
     
     /* CORES BASE */
     --base: #2644c9;
@@ -36,43 +47,149 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Inter";
 }
+
+/* ELEMENTOS DO CABEÇALHO */
 
 header {
     display: flex;
+    justify-content: center;    
+    background-color: var(--base-header);
+    border-bottom: 10px solid purple;
+}
+
+#cabecalho {
+    display: flex;
     justify-content: space-between;
-    padding: 2%;
-    background-color: var(--base);
+    align-items: center;
+    width: 90%;
+    padding: 20px 0px;
 }
 
 #title {
     display: flex;
-    justify-content: space-between;
-    width: 50%;
+    align-items: center;
+    gap: 40px;
+    color: var(--texto-claro);
+    font-size: 40px;
 }
 
-h1 {
-    font-size: 48px;
+#title h1 {
+    font-family: 'Mystery Quest';
+    font-weight: 300;
+}
+
+#logo {
+    width: 150px;
+}
+
+#opcoes {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+#darkmode {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+#texto-darkmode h2{
+    display: flex;
+    justify-content: space-around;
+    font-size: 36px;
+    color: var(--texto-claro);
+    font-weight: 300;
+}
+
+
+/* ELEMENTOS DO MAIN */
+
+main h1, h2, h3, h4 {
+    font-family: 'Mystery Quest', system-ui, sans-serif;
+    color: var(--texto-escuro);
+    font-weight: 300;
+}
+
+main h1{
+    font-size: 90px;
 }
 
 h2 {
+    font-size: 54px;
+    line-height: 1;
+}
+
+h3 {
     font-size: 36px;
+}
+
+p {
+    font-size: 28px;
 }
 
 main {
     display: flex;
     flex-direction: column;
-    gap: 50px;
     align-items: center;
-    padding: 2%;
+    align-items: center;
+    padding-top: 50px;
 }
+
+/* SEÇÕES */
+
+#secao1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 50px;
+    gap: 70px;
+    width: 90%;
+}
+
+#secao1 img {
+    width: 250px;
+}
+
+#texto-secao1 {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+#secao2 {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px;
+    background-color: var(--secao-background-color);
+    width: 100%;
+}
+
+#texto-secao2 {
+    width: 90%;
+}
+
+#secao3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 50px;
+    gap: 30px;
+    background-image: url(data/fundo.png);
+}
+
+/* FORMULÁRIO */
 
 #form-cadastro {
     display: flex;
     flex-direction: column;
+    text-align: center;
+    background-color: var(--background-color-form);
     gap: 40px;
-    padding: 2%;
+    padding: 50px;
     width: 40%;
     border: 1px solid black;
     border-radius: 25px;
@@ -81,10 +198,39 @@ main {
 #form-preencher {
     display: flex;
     flex-direction: column;
+    text-align: left;
     gap: 15px;
 }
 
-input, button {
-    padding: 10px;
+label {
+    font-size: 24px;
+    font-family: 'Mystery Quest', system-ui, sans-serif;
+}
+
+input, button, textarea {
+    padding: 12px;
     border-radius: 15px;
+    border: 1px solid gray;
+}
+
+input:hover, textarea:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #22003C;
+}
+
+textarea {
+    height: 70px;
+}
+
+button {
+    width: 40%;
+    background-color: var(--button-background);
+    color: var(--texto-claro);
+    font-family: 'Mystery Quest', system-ui, sans-serif;
+    font-size: 36px;
+    border-radius: 50px;
 }

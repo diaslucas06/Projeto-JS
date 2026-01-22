@@ -3,51 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Livros</title>
+    <title>Bookshelf</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <div id="title">
-            <img src="" alt="">
-            <h1>Carrinho de Compras de Livros</h1>
-        </div>
 
-        <!--Botão do Modo Escuro-->
-        <a href="">
-            <img src="" alt="">
-        </a>
+<body>
+
+    <!--Cabeçalho-->
+
+    <header>
+        <div id="cabecalho">
+            <div id="title">
+                <img id="logo" src="data/logo.png" alt="">
+                <h1>Bookshelf</h1>
+            </div>
+
+            <div id="opcoes">
+                <div id="darkmode">
+                    <div id="texto-darkmode">
+                        <img src="" alt="">
+                        <h2>Modo Escuro</h2>
+                    </div>
+                    <img src="data/estante.png" alt="" id="prateleira">
+                </div>
+
+                <!--Botão do Modo Escuro-->
+                <div id="darkmode">
+                    <div id="texto-darkmode">
+                        <img src="" alt="">
+                        <h2>Modo Escuro</h2>
+                    </div>
+                    <img src="data/estante.png" alt="" id="prateleira">
+                </div>
+
+            </div>
+        </div>
     </header>
+
     <main>
-        <h2>Adicione todos os livros que pretende ler, criando seu próprio carrinho de compras literário!</h2>
+
+        <!--Seções-->
+
+        <section id="secao1">
+            <div id="texto-secao1">
+                <h2>Adicione todos os livros que pretende ler, criando seu próprio carrinho de compras literário!</h2>
+                <div id="como-funciona">
+                    <h3>Como funciona?</h3>
+                    <p>Basta preencher o formulário com as informações do livro para adicioná-lo à sua <b>BookShelf</b>. Em um só lugar, você gerencia sua coleção completa ou o seu “carrinho de compras literário”, visualiza o investimento total, filtra por gêneros literários e organiza suas próximas leituras.</p>
+                </div>
+            </div>
+            <img src="data/bookshelf.png" alt="">
+        </section>
+
+        <section id="secao2">
+            <div id="texto-secao2">
+                <h2>Sugestões literárias para a sua Bookshelf</h2>
+                <div id="livros-sugeridos">
+                    
+                </div>
+            </div>
+        </section>
 
         <!--Formulário para cadastrar livros-->
-        <div id="form-cadastro">
-            <h3>Adicione um livro, preenchendo as seguintes informações:</h3>
-            <form id="form-preencher" action="">
-                <label for="titulo">Título:</label>
-                <input type="text" name="titulo" placeholder="Título">
-                <label for="genero">Gênero:</label>
-                <input type="text" name="genero" placeholder="Gênero">
-                <label for="descricao">Descrição:</label>
-                <input type="text" name="descricao" placeholder="Descrição">
-                <label for="quantidade">Quantidade:</label>
-                <input type="text" name="quantidade" placeholder="Quantidade">
-                <label for="valorUnitario">Valor unitário:</label>
-                <input type="text" name="valorUnitario" placeholder="Valor unitário">
-                <button id="btn">Adicionar</button>
-            </form>
-        </div>
+
+        <section id="secao3">
+            <div id="form-cadastro">
+                <h2>Cadastro de livros</h2>
+                <form id="form-preencher" action="">
+                    <label for="titulo">Título:</label>
+                    <input type="text" name="titulo" placeholder="Escreva aqui o título do livro">
+                    <label for="genero">Gênero:</label>
+                    <input type="text" name="genero" placeholder="Escreva aqui o gênero do livro">
+                    <label for="descricao">Descrição:</label>
+                    <textarea name="descricao" placeholder="Escreva aqui a descrição do livro"></textarea>
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="text" name="quantidade" placeholder="Escreva aqui a quantidade de livros">
+                    <label for="valorUnitario">Valor unitário:</label>
+                    <input type="text" name="valorUnitario" placeholder="Escreva aqui o valor do livro">
+                </form>
+            </div>
+            <button id="btn">Cadastrar livro</button>
+        </section>
+
         <div>
             <h3>Livros Cadastrados</h3>
             <ul id="lista">
                 <!--Itens adicionados via JavaScript-->
             </ul>
         </div>
+        
     </main>
+
     <footer>
 
     </footer>
+
     <script src="app.js"></script>
 </body>
 </html>
