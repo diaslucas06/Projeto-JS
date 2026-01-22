@@ -8,6 +8,7 @@ const Listaul = document.getElementById('lista');
 const mensagem = document.getElementById('mensagem');
 const quantidadeLivros = document.getElementById('qtd');
 const mediaLivros = document.getElementById('media');
+const totalLivros = document.getElementById('total')
 
 /*Globais*/
 
@@ -97,6 +98,7 @@ BotaoAdicionar.addEventListener('click', (event) => {
 
     quantidadeLivros.innerText = `Quantidade total de livros: ${QuantidadeTotal}`
     mediaLivros.innerHTML = `Média do valor unitário: R$${MediaTotal.toFixed(2)}`
+    totalLivros.innerText = `Valor total dos livros: ${TotalGeral}`
 
     /*Criando objeto "livro" e adicionando na lista LivrosCadastrados*/
 
