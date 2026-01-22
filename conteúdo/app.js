@@ -1,11 +1,12 @@
 let FormPreencher = document.getElementById('form-preencher');
 const BotaoAdicionar = document.getElementById('btn');
+const BotaoExcluir = document.getElementById('btn-excluir');
 const Listaul = document.getElementById('lista');
+let mensagem = document.getElementById('mensagem');
 let FormCadastro = document.getElementById('form-cadastro');
 let LivrosCadastrados = [];
 let TotalGeral = 0;
 let QuantidadeTotal = 0;
-let MediaTotal = TotalGeral / QuantidadeTotal;
 
 function atualizar_lista() {
     Listaul.innerHTML = ''; 
@@ -14,12 +15,12 @@ function atualizar_lista() {
         let li = document.createElement('li');
         let livro = LivrosCadastrados[i];
 
-        li.textContent = `${livro.titulo}\n${livro.genero}\n${livro.descricao}\nQuantidade: ${livro.quantidade}\nValor: R$${livro.valorUnitario}`;
+        li.textContent = `${livro.titulo}\nGênero: ${livro.genero}\n${livro.descricao}\nQuantidade: ${livro.quantidade}\nR$${livro.valorUnitario}`;
         Listaul.appendChild(li);
     }
 }
 
-BotaoAdicionar.addEventListener('click', function(event) {
+BotaoAdicionar.addEventListener('click', (event) => {
     event.preventDefault();
 
     let titulo = document.getElementsByName('titulo')[0].value;
@@ -33,6 +34,7 @@ BotaoAdicionar.addEventListener('click', function(event) {
 
     TotalGeral += quantidade * valorUnitario;
     QuantidadeTotal += quantidade;
+    let MediaTotal = TotalGeral / QuantidadeTotal;
 
     const livro = {
         titulo: titulo,
@@ -41,7 +43,7 @@ BotaoAdicionar.addEventListener('click', function(event) {
         quantidade: quantidade,
         valorUnitario: valorUnitario
     }
-
     LivrosCadastrados.push(livro);
     atualizar_lista();
+
 });
