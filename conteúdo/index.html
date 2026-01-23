@@ -19,18 +19,18 @@
             </div>
 
             <div id="opcoes">
-                <div id="darkmode">
-                    <div id="texto-darkmode">
-                        <img src="" alt="">
+                <div class="option">
+                    <div class="texto-option">
+                        <div id="darkmodeicon"></div>
                         <h2>Modo Escuro</h2>
                     </div>
                     <img src="data/estante.png" alt="" id="prateleira">
                 </div>
 
                 <!--Botão do Modo Escuro-->
-                <div id="darkmode">
-                    <div id="texto-darkmode">
-                        <img src="" alt="">
+                <div class="option">
+                    <div class="texto-option" id="texto-darkmode">
+                        <div id="darkmodeicon"></div>
                         <h2>Modo Escuro</h2>
                     </div>
                     <img src="data/estante.png" alt="" id="prateleira">
@@ -59,7 +59,11 @@
             <div id="texto-secao2">
                 <h2>Sugestões literárias para a sua Bookshelf</h2>
                 <div id="livros-sugeridos">
-                    
+                    <div class="livro" id="livro1"></div>
+                    <div class="livro" id="livro2"></div>
+                    <div class="livro" id="livro3"></div>
+                    <div class="livro" id="livro4"></div>
+                    <div class="livro" id="livro5"></div>
                 </div>
             </div>
         </section>
@@ -88,14 +92,14 @@
 
     <section id="secao4">
         <div id="livrosCadastrados">
-            <h3><img src="data/book-icon.png" alt="" style="width:36px;vertical-align:middle;margin-right:10px;">Livros Cadastrados</h3>
+            <h2><img src="data/book-icon.png" alt="" id="bookicon">Livros Cadastrados</h2>
             <ul id="lista">
                 <!--Itens adicionados via JavaScript-->
             </ul>
             <div class="stats">
                 <p id="qtd" class="stat-box">Total de livros cadastrados: 0</p>
                 <p id="media" class="stat-box center">Média de valor unitário: 0</p>
-                <p id="total" class="stat-box">Total de livros por gênero: 0</p>
+                <p id="total" class="stat-box">Valor total dos livros: 0</p>
             </div>
         </div>
     </section>
