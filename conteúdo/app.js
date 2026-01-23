@@ -10,6 +10,13 @@ const quantidadeLivros = document.getElementById('qtd');
 const mediaLivros = document.getElementById('media');
 const totalLivros = document.getElementById('total')
 
+/* Tema escuro */
+
+const dark = document.getElementById("texto-darkmode");
+const body = document.getElementsByTagName("body")[0];
+
+const savedTheme = localStorage.getItem("tema");
+
 /*Globais*/
 
 let LivrosCadastrados = [];
@@ -26,7 +33,7 @@ function atualizar_lista() {
         let li = document.createElement('li');
         let livro = LivrosCadastrados[i];
 
-        li.textContent = `${livro.titulo}\nGênero: ${livro.genero}\n${livro.descricao}\nQuantidade: ${livro.quantidade}\nR$${livro.valorUnitario}`;
+        li.innerHTML = `<div><h2>${livro.titulo}</h2><h2>R$${livro.valorUnitario}</h2></div>\n<p>${livro.descricao}</p>\n<div><div id="carac"><h4>Gênero: ${livro.genero}</h4><h4>Quantidade: ${livro.quantidade}</div></h4><div id="excluir"></div></div>`;
         Listaul.appendChild(li);
     }
 
@@ -34,6 +41,15 @@ function atualizar_lista() {
     const dadosJSON = JSON.stringify(LivrosCadastrados);
     console.log("Conteúdo atual em JSON:", dadosJSON);
 
+    /* Salvando os dados atualizados */
+    salvarDados();
+
+}
+
+/* Salvar dados com JSON e localStorage, serve para, ao recarregar a página, seus livros não desaparecerem */
+
+function salvarDados() {
+    localStorage.setItem('meus_livros', JSON.stringify(LivrosCadastrados));
 }
 
 BotaoAdicionar.addEventListener('click', (event) => {
@@ -101,11 +117,12 @@ BotaoAdicionar.addEventListener('click', (event) => {
     QuantidadeTotal += quantidade;
     let MediaTotal = TotalGeral / QuantidadeTotal;
 
+
     /*Mensagens*/
 
-    quantidadeLivros.innerText = `Quantidade total de livros: ${QuantidadeTotal}`
+    quantidadeLivros.innerText = `Total de livros cadastrados: ${QuantidadeTotal}`
     mediaLivros.innerHTML = `Média do valor unitário: R$${MediaTotal.toFixed(2)}`
-    totalLivros.innerText = `Valor total dos livros: ${TotalGeral}`
+    totalLivros.innerText = `Valor total dos livros: R$${TotalGeral.toFixed(2)}`
 
 
     /*Criando objeto "livro" e adicionando na lista LivrosCadastrados*/
@@ -118,12 +135,36 @@ BotaoAdicionar.addEventListener('click', (event) => {
         valorUnitario: valorUnitario
     }
     LivrosCadastrados.push(livro);
-
-    /*Exemplo JSON parse, leitura de dado*/
-    const livroJSON = JSON.stringify(livro);
-    const livroObjeto = JSON.parse(livroJSON);
-    console.log("Objeto recuperado:", livroObjeto);
-
     atualizar_lista();
 
 });
+
+/* Aplicação da mudança de tema */
+
+if (savedTheme === "dark") {
+    body.setAttribute("theme", "dark");
+}
+
+dark.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    const currentTheme = body.getAttribute("theme");
+
+    if (currentTheme === "dark") {
+        body.removeAttribute("theme");
+        localStorage.setItem("tema", "light"); 
+    } else {
+        body.setAttribute("theme", "dark");
+        localStorage.setItem("tema", "dark");
+    }
+});
+
+/* Acessando livros salvos por meio de localStorage*/
+
+const livrosSalvos = localStorage.getItem('meus_livros');
+
+if (livrosSalvos) {
+    LivrosCadastrados = JSON.parse(livrosSalvos);
+    /*Desenha os livros carregados*/
+    atualizar_lista(); 
+}
