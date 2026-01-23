@@ -16,6 +16,7 @@ let LivrosCadastrados = [];
 let TotalGeral = 0;
 let QuantidadeTotal = 0;
 
+
 /*Lista para atualizar a lista de livros cadastrados*/
 
 function atualizar_lista() {
@@ -28,10 +29,16 @@ function atualizar_lista() {
         li.textContent = `${livro.titulo}\nGênero: ${livro.genero}\n${livro.descricao}\nQuantidade: ${livro.quantidade}\nR$${livro.valorUnitario}`;
         Listaul.appendChild(li);
     }
+
+    /*JSON stringtify, converte o array para texto e exibe*/
+    const dadosJSON = JSON.stringify(LivrosCadastrados);
+    console.log("Conteúdo atual em JSON:", dadosJSON);
+
 }
 
 BotaoAdicionar.addEventListener('click', (event) => {
     event.preventDefault();
+
 
     /*Valores do Form*/
 
@@ -100,6 +107,7 @@ BotaoAdicionar.addEventListener('click', (event) => {
     mediaLivros.innerHTML = `Média do valor unitário: R$${MediaTotal.toFixed(2)}`
     totalLivros.innerText = `Valor total dos livros: ${TotalGeral}`
 
+
     /*Criando objeto "livro" e adicionando na lista LivrosCadastrados*/
 
     const livro = {
@@ -110,6 +118,12 @@ BotaoAdicionar.addEventListener('click', (event) => {
         valorUnitario: valorUnitario
     }
     LivrosCadastrados.push(livro);
+
+    /*Exemplo JSON parse, leitura de dado*/
+    const livroJSON = JSON.stringify(livro);
+    const livroObjeto = JSON.parse(livroJSON);
+    console.log("Objeto recuperado:", livroObjeto);
+
     atualizar_lista();
 
 });
