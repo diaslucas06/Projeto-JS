@@ -34,13 +34,11 @@ function atualizar_lista() {
         let li = document.createElement('li');
         let livro = LivrosCadastrados[i];
 
-        /* --- MUDANÇA AQUI: O FILTRO --- */
-        // Se o filtro não for "todos" e o gênero for diferente, pula este livro
-        if (filtroGenero.value !== 'todos' && livro.genero !== filtroGenero.value) {
+    // Se o filtro não for "todos" e o gênero for diferente, pula este livro
+    if (filtroGenero.value !== 'todos' && livro.genero !== filtroGenero.value) {
             continue; 
-        }
-        /* ------------------------------ */
-
+    }
+       
         li.innerHTML = `<div><h2>${livro.titulo}</h2><h2>R$${livro.valorUnitario}</h2></div>\n<p>${livro.descricao}</p>\n<div><div id="carac"><h4>Gênero: ${livro.genero}</h4><h4>Quantidade: ${livro.quantidade}</div></h4><div class="excluir" id="excluir${i}"></div></div>`;
         Listaul.appendChild(li);
         

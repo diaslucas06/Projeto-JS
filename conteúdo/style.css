@@ -106,14 +106,37 @@ header {
 
 #opcoes {
     display: flex;
-    justify-content: space-between;
-    width: 40%;
+    justify-content: flex-end; 
+    align-items: flex-end;     
+    gap: 30px;                 
+    width: 50%;               
 }
 
 .option {
     display: flex;
-    flex-direction: column;
-    width: 45%;
+    flex-direction: column;    
+    align-items: center;       
+    width: 250px;              
+    position: relative;        
+}
+
+/* Ajuste para a imagem dos livros não voar */
+#img-decoracao {
+    width: 80%;               
+    margin-bottom: -5px;      
+}
+
+/* Garante que a madeira da estante respeite o limite */
+.prateleira, #prateleira {
+    width: 100%;              
+    display: block;
+}
+
+.texto-option h2 {
+    font-size: 28px;          
+    white-space: nowrap;     
+    color: white;
+    margin: 0;
 }
 
 #darkmodeicon {
@@ -136,12 +159,12 @@ header {
     cursor: pointer;
 }
 
-.texto-option h2{
-    display: flex;
-    justify-content: space-around;
-    font-size: 36px;
+.texto-option h2 {
+    font-size: 30px; 
+    white-space: nowrap;   
     color: white;
     font-weight: 300;
+    margin: 0;
 }
 
 
@@ -513,19 +536,19 @@ button {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 30px; /* Espaço antes da lista começar */
+    margin-bottom: 30px; 
 }
 
 #filtro-genero {
-    background-color: #ce91e5; /* Cor lilás do seu tema */
+    background-color: #ce91e5; 
     color: white;
-    font-family: 'Mystery Quest', system-ui; /* A mesma fonte do título */
+    font-family: 'Mystery Quest', system-ui; 
     font-size: 24px;
     border: none;
-    border-radius: 50px; /* Deixa bem redondinho */
+    border-radius: 50px; 
     padding: 10px 30px;
     cursor: pointer;
-    outline: none; /* Tira a borda azul ao clicar */
+    outline: none; 
     text-align: center;
 }
 
@@ -535,3 +558,23 @@ button {
         gap: 15px;
     }
 }
+
+.livros-decoracao {
+    width: 60%;   
+    height: auto; 
+    margin: 0 auto; 
+    display: block;
+    margin-bottom: -5px;
+}
+
+.imagem-prateleira {
+    max-width: 100%;
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .livros-decoracao {
+        width: 50%; 
+    }
+}
+
